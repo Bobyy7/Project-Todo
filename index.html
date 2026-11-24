@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>To do list</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+    />
+
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">To do List</h1>
+      </div>
+
+      <div class="divvv">
+        <input
+          id="input"
+          class="input"
+          placeholder="What are you planning today?"
+          type="text"
+          onkeydown="if (event.key === 'Enter') addd();"
+        />
+
+        <button onclick="addd()" class="button is-info">Add</button>
+      </div>
+
+      <div id="cont"></div>
+
+      <button id="clear" onclick="clearall()" class="button is-danger">
+        Clear All
+      </button>
+
+      <script>
+        const input = document.getElementById("input");
+        const cont = document.getElementById("cont");
+
+        let todos = [];
+
+        const addd = () => {
+          if (input.value.trim() === "") return;
+
+          todos.push(input.value.trim());
+
+          input.value = "";
+
+          renderTodo();
+        };
+
+        const renderTodo = () => {
+          cont.textContent = "";
+
+          for (let i = 0; i < todos.length; i++) {
+            const newDiv = document.createElement("div");
+
+            newDiv.classList.add("ttodo");
+
+            const text = document.createElement("span");
+            text.textContent = todos[i];
+
+            const deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Delete";
+            deleteBtn.classList.add("button", "is-danger", "is-small");
+
+            deleteBtn.onclick = () => {
+              todos.splice(i, 1);
+              renderTodo();
+            };
+
+            newDiv.appendChild(text);
+            newDiv.appendChild(deleteBtn);
+
+            cont.appendChild(newDiv);
+          }
+        };
+
+        const clearall = () => {
+          todos = [];
+          renderTodo();
+        };
+      </script>
+    </section>
+  </body>
+</html>

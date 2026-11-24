@@ -1,0 +1,46 @@
+.input {
+  border-radius: 10px;
+  width: 80%;
+}
+
+.divvv {
+  margin-top: 50px;
+  display: flex;
+  gap: 20px;
+}
+
+.ttodo {
+  color: #ffff;
+  font-size: 18px;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.ttodo span {
+  overflow-wrap: anywhere;
+}
+
+.section {
+  width: 100%;
+  margin: 10px;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 100px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#cont {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+}
